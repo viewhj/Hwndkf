@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Уголёк — кофейня</title>
+<style>
+:root{--bg:#f7f0e6;--card:#fffaf2;--ink:#3b2a20;--mute:#7d6757;--acc:#8a5a3b;--acc2:#a9744f;--line:#e6d8c5;--soft:#efe2d0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241a14;--card:#2f221a;--ink:#f3e7d8;--mute:#bba58f;--acc:#c99067;--acc2:#b57d55;--line:#44332a;--soft:#3a2b21}}
+:root[data-theme="dark"]{--bg:#241a14;--card:#2f221a;--ink:#f3e7d8;--mute:#bba58f;--acc:#c99067;--acc2:#b57d55;--line:#44332a;--soft:#3a2b21}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px;height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Georgia,"Times New Roman",serif}
+h1,h2,h3{font-weight:600;line-height:1.2;margin:0 0 .5em}
+a{color:var(--acc)}.w{max-width:1040px;margin:auto;padding:0 18px}
+section{padding:56px 0}h2{font-size:clamp(26px,5vw,36px);text-align:center;margin-bottom:28px}
+.sans,button,input,select,textarea,nav{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;gap:14px;height:60px}
+.logo{font-size:22px;font-weight:700;text-decoration:none;color:var(--ink);margin-right:auto}
+nav{display:flex;gap:16px;font-size:14px}nav a{color:var(--mute);text-decoration:none}nav a:hover{color:var(--acc)}
+.btn{background:var(--acc);color:#fff8ef;border:0;border-radius:999px;padding:11px 22px;font-size:15px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--acc2)}.btn:disabled{opacity:.45;cursor:not-allowed}.btn.o{background:none;color:var(--acc);border:1px solid var(--acc)}
+.btn.big{width:100%;padding:16px;font-size:17px}
+.cartb{position:relative;background:var(--soft);border:0;border-radius:999px;padding:9px 14px;color:var(--ink);cursor:pointer;font-size:15px}
+.cartb b{background:var(--acc);color:#fff;border-radius:99px;font-size:12px;padding:1px 7px;margin-left:4px}
+.burger{display:none;background:none;border:0;font-size:24px;color:var(--ink)}
+@media(max-width:760px){.burger{display:block}nav{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg);flex-direction:column;padding:12px 18px;border-bottom:1px solid var(--line)}nav.open{display:flex}}
+.hero{padding:70px 0 60px;background:linear-gradient(160deg,var(--soft),var(--bg))}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(38px,7vw,64px)}.hero p{color:var(--mute);font-size:18px;max-width:440px}
+.hv{position:relative;max-width:380px;margin:auto;width:100%}.hv .lf{position:absolute;width:30%;height:auto;aspect-ratio:1;z-index:2}.stk{position:absolute;right:-4px;bottom:8px;width:98px;height:98px;border-radius:50%;background:var(--acc);color:#fff8ef;display:grid;place-items:center;text-align:center;font:600 12px/1.25 system-ui;transform:rotate(12deg);border:2px dashed #fff8ef99;padding:8px;z-index:3}.cup{aspect-ratio:1;border-radius:50% 50% 46% 54%/55% 45% 55% 45%;background:radial-gradient(circle at 35% 30%,#d9b58c,#8a5a3b 70%,#5a3a26);display:grid;place-items:center;font-size:clamp(90px,20vw,170px);box-shadow:0 20px 50px #5a3a2644}
+@media(max-width:760px){.hero .w{grid-template-columns:1fr;text-align:center}.hero p{margin:0 auto 20px}.hv{max-width:280px}}
+.about{max-width:640px;margin:auto;text-align:center;color:var(--mute);font-size:18px}
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.tabs button{background:var(--soft);border:0;border-radius:99px;padding:8px 18px;color:var(--ink);cursor:pointer;font-size:15px}.tabs .on{background:var(--acc);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.it{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.ph{aspect-ratio:4/3;display:grid;place-items:center;font-size:60px}
+.it div.b{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}.it h3{font-size:18px;margin:0}.it p{margin:0;color:var(--mute);font-size:14px;flex:1;font-family:system-ui,sans-serif}
+.pr{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-family:system-ui,sans-serif}.pr b{font-size:18px}
+.pay{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;font-family:system-ui,sans-serif}
+.pay div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}.pay span{font-size:30px;display:block}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}.gal div{aspect-ratio:1;border-radius:16px;display:grid;place-items:center;font-size:54px;position:relative}
+.gal small{position:absolute;bottom:8px;font:12px system-ui;color:#3b2a20}
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:24px;font-family:system-ui,sans-serif}.ct p{margin:.3em 0}
+.map{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--soft);min-height:220px}.map svg{width:100%;height:100%;display:block}
+@media(max-width:760px){.ct{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--mute);font:14px system-ui,sans-serif}footer a{margin:0 8px;text-decoration:none}
+.ov{position:fixed;inset:0;z-index:50;background:#2a1d1599;display:none;justify-content:flex-end}.ov.on{display:flex}
+.pn{background:var(--bg);width:min(520px,100%);height:100%;overflow:auto;padding:22px 20px calc(30px + env(safe-area-inset-bottom,0px));padding-top:calc(22px + env(safe-area-inset-top,0px))}
+.pn.wide{width:min(760px,100%)}
+.x{float:right;background:var(--soft);border:0;border-radius:50%;width:36px;height:36px;font-size:18px;color:var(--ink);cursor:pointer}
+.row{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-family:system-ui,sans-serif}
+.row .e{font-size:30px}.row .n{flex:1}.row small{color:var(--mute)}
+.q{display:flex;align-items:center;gap:8px}.q button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tot{display:flex;justify-content:space-between;font-size:22px;margin:18px 0;font-family:system-ui,sans-serif}
+label{display:block;font:14px system-ui;margin:12px 0 4px;color:var(--mute)}
+input[type=text],input[type=tel],select,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font-size:16px}
+.opt{display:flex;gap:8px;flex-wrap:wrap}.opt label{margin:0;flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;color:var(--ink);cursor:pointer}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:16px 0;font:14px system-ui;color:var(--ink)}.chk input{margin-top:4px;width:18px;height:18px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ok{text-align:center;font-family:system-ui,sans-serif}.ok .tick{font-size:56px}.ok h2{margin-bottom:10px}
+.rec{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:left;margin:18px 0}.rec p{margin:.4em 0;display:flex;justify-content:space-between;gap:10px}
+.doc h2{text-align:left;font-size:28px}.doc h3{margin-top:1.4em;font-size:19px}.doc p,.doc li{color:var(--mute);font-family:system-ui,sans-serif;font-size:15px}
+.note{font:12px system-ui;color:var(--mute);text-align:center;margin-top:8px}
+.hide{display:none}.dl{position:absolute;width:150px;height:150px;opacity:.28;pointer-events:none}.loy{max-width:340px;margin:28px auto 0;background:var(--card);border:2px dashed var(--acc2);border-radius:18px;padding:14px 16px;font-family:system-ui,sans-serif;font-size:14px;color:var(--ink)}.loy div{display:flex;gap:8px;justify-content:center;margin:10px 0}.loy i{width:38px;height:38px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-style:normal;color:var(--acc);font-size:20px}.loy i svg{width:24px;height:24px}.loy i.g{background:var(--acc);color:#fff}.loy small{color:var(--mute)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="cup" viewBox="0 0 100 100"><ellipse cx="48" cy="88" rx="38" ry="6" fill="#00000022"/><path d="M18 40h54v16a27 27 0 0 1-27 27h0a27 27 0 0 1-27-27z" fill="#fffaf2"/><path d="M72 46h7a9 9 0 0 1 0 18h-11" fill="none" stroke="#fffaf2" stroke-width="5"/><ellipse cx="45" cy="42" rx="27" ry="5" fill="#6b4430"/><path d="M33 30q-6-8 0-14M45 28q-6-8 0-16M57 30q-6-8 0-14" stroke="#fffaf2" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/></symbol>
+<symbol id="tea" viewBox="0 0 100 100"><path d="M24 34h44l-4 46a8 8 0 0 1-8 7H36a8 8 0 0 1-8-7z" fill="#fffaf2" opacity=".92"/><path d="M28 48h36l-2 31H30z" fill="#c98f4f"/><path d="M68 44h6a9 9 0 0 1 0 18h-8" fill="none" stroke="#fffaf2" stroke-width="5"/><path d="M46 34V16l12-4" stroke="#fffaf2" stroke-width="2.5" fill="none"/><rect x="56" y="8" width="12" height="10" rx="2" fill="#a9744f"/></symbol>
+<symbol id="cake" viewBox="0 0 100 100"><ellipse cx="50" cy="86" rx="40" ry="5" fill="#00000022"/><rect x="14" y="62" width="72" height="20" rx="5" fill="#d9b58c"/><rect x="14" y="48" width="72" height="14" fill="#fffaf2"/><rect x="14" y="34" width="72" height="14" rx="5" fill="#b98a68"/><circle cx="50" cy="28" r="7" fill="#b5524a"/><path d="M50 21q3-8 9-9" stroke="#6f7d4c" stroke-width="3" fill="none"/></symbol>
+<symbol id="cro" viewBox="0 0 100 100"><ellipse cx="50" cy="82" rx="40" ry="5" fill="#00000022"/><path d="M8 66Q16 28 50 28t42 38q-12 8-20-2l-6 10q-10 4-16-4-6 8-16 4l-6-10q-8 10-20 2z" fill="#e6b068"/><path d="M36 34l6 28M50 30v34M64 34l-6 28" stroke="#c98a45" stroke-width="3" fill="none"/></symbol>
+<symbol id="leaf" viewBox="0 0 100 100"><path d="M50 96C18 82 4 50 28 12c12 16 42 10 64 26C88 74 72 90 50 96z" fill="#7e8a5a"/><path d="M50 94C46 62 56 40 80 30M50 70l-16-10M52 56l18-4" stroke="#fffaf2" stroke-width="2" fill="none" opacity=".6"/></symbol>
+<symbol id="bean" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="26" ry="38" transform="rotate(30 50 50)" fill="#6b4430"/><path d="M36 22q22 24 6 56" stroke="#d9b58c" stroke-width="4" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="plant" viewBox="0 0 100 100"><path d="M50 62C30 52 24 34 34 14c10 10 16 26 16 48zM50 62c2-24 12-40 28-46 6 22-6 40-28 46zM50 62C40 48 44 34 50 24c8 12 6 26 0 38z" fill="#7e8a5a"/><path d="M30 64h40l-6 28H36z" fill="#b98a68"/><rect x="28" y="60" width="44" height="8" rx="3" fill="#a9744f"/></symbol>
+</defs></svg>
+<header><div class="w">
+<a class="logo" href="#home"><svg width="28" height="28" style="vertical-align:-6px;background:var(--acc);border-radius:50%;padding:3px;margin-right:4px"><use href="#cup"/></svg>Уголёк</a>
+<nav id="nav"><a href="#about">О нас</a><a href="#menu">Меню</a><a href="#payments">Оплата</a><a href="#gallery">Галерея</a><a href="#contacts">Контакты</a></nav>
+<button class="cartb" onclick="openPanel('cart')" aria-label="Корзина">🛍 Корзина<b id="cc">0</b></button>
+<button class="burger" onclick="nav.classList.toggle('open')" aria-label="Меню">☰</button>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="w">
+<div><h1>Уголёк</h1><p>Добро пожаловать! Свежеобжаренный кофе, домашняя выпечка и тёплая атмосфера — заходите или закажите онлайн.</p><br><a class="btn" href="#menu">Заказать сейчас</a></div>
+<div class="hv"><div class="cup" role="img" aria-label="Чашка кофе"><svg viewBox="0 0 100 100" style="width:68%"><use href="#cup"/></svg></div><svg class="lf" style="left:-6%;top:2%;transform:rotate(-30deg)"><use href="#leaf"/></svg><svg class="lf" style="right:0;top:-4%;width:24%;transform:rotate(40deg)"><use href="#plant"/></svg><svg class="lf" style="left:8%;bottom:-4%;width:20%"><use href="#bean"/></svg><div class="stk">Свежая обжарка<br>каждую неделю</div></div>
+</div></section>
+
+<section id="about" style="position:relative;overflow:hidden"><svg class="dl" style="left:-30px;top:10px;transform:rotate(-20deg)"><use href="#leaf"/></svg><svg class="dl" style="right:-20px;bottom:0;transform:rotate(150deg)"><use href="#leaf"/></svg><div class="w"><h2>О нас</h2>
+<p class="about">«Уголёк» — небольшая семейная кофейня в центре города. Мы сами обжариваем зёрна, печём десерты каждое утро и создали место, где можно выдохнуть: мягкий свет, дерево, плед на спинке кресла и запах свежего кофе. Приходите работать, читать или просто встретиться с друзьями.</p><div class="loy"><b>Карта гостя «Уголёк»</b><div><i><svg><use href="#bean"/></svg></i><i><svg><use href="#bean"/></svg></i><i><svg><use href="#bean"/></svg></i><i><svg><use href="#bean"/></svg></i><i><svg><use href="#bean"/></svg></i><i class="g">★</i></div><small>Каждый 6-й кофе — в подарок</small></div></div></section>
+
+<section id="menu" style="background:var(--soft)"><div class="w"><h2>Меню</h2>
+<div class="tabs" id="tabs"></div><div class="grid" id="grid"></div></div></section>
+
+<section id="payments"><div class="w"><h2>Способы оплаты</h2>
+<div class="pay"><div><span>💳</span>Банковская карта</div><div><span>🍎</span>Apple Pay</div><div><span>🟢</span>Google Pay</div><div><span>💵</span>Наличные при получении</div></div></div></section>
+
+<section id="gallery" style="background:var(--soft)"><div class="w"><h2>Галерея</h2><div class="gal" id="gal"></div></div></section>
+
+<section id="contacts"><div class="w"><h2>Контакты</h2>
+<div class="ct"><div>
+<p>📍 <b>Адрес:</b> ул. Кофейная, 12, Москва</p>
+<p>📞 <b>Телефон:</b> <a href="tel:+74950000000">+7 (495) 000-00-00</a></p>
+<p>🕗 <b>Часы работы:</b><br>Пн–Пт: 8:00–21:00<br>Сб–Вс: 9:00–22:00</p>
+<p>✉️ hello@ugolyok.example</p></div>
+<div class="map"><svg viewBox="0 0 400 240" role="img" aria-label="Карта"><rect width="400" height="240" fill="var(--soft)"/><path d="M0 150H400M120 0V240M280 0V240M0 60L400 110" stroke="var(--line)" stroke-width="14" fill="none"/><rect x="140" y="20" width="120" height="60" rx="10" fill="var(--line)" opacity=".5"/><rect x="300" y="160" width="80" height="60" rx="10" fill="var(--line)" opacity=".5"/><circle cx="200" cy="120" r="14" fill="var(--acc)"/><circle cx="200" cy="120" r="5" fill="#fff"/><text x="200" y="158" text-anchor="middle" font-size="14" fill="var(--ink)" font-family="system-ui">Уголёк</text></svg></div></div></div></section>
+</main>
+
+<footer><div class="w"><a href="#privacy">Политика конфиденциальности</a>|<a href="#terms">Условия использования</a>|<a href="#contacts">Контакты</a><p>© 2026 Уголёк</p></div></footer>
+
+<div class="ov" id="ov" onclick="if(event.target===this)closePanel()"><div class="pn" id="pn"></div></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const M=[
+["c1","coffee","Эспрессо","Классический, насыщенный, с плотной кремой",150,"☕","#c9a27c"],
+["c2","coffee","Капучино","Нежная молочная пенка и двойной эспрессо",220,"🥛","#d8bf9f"],
+["c3","coffee","Латте","Мягкий вкус, много молока, ваниль по желанию",240,"☕","#e3cfb4"],
+["c4","coffee","Флэт уайт","Двойной ристретто и бархатное молоко",250,"☕","#cfae8a"],
+["t1","tea","Чай с бергамотом","Эрл Грей, подаётся с мёдом",190,"🫖","#d6b88f"],
+["t2","tea","Зелёный жасмин","Лёгкий, цветочный аромат",190,"🍵","#c7cfa8"],
+["t3","tea","Облепиховый чай","Тёплый, с имбирём и апельсином",230,"🍊","#e2b98a"],
+["d1","dessert","Чизкейк","Нежный сливочный, с ягодным соусом",290,"🍰","#ecd5c1"],
+["d2","dessert","Тирамису","Савоярди, маскарпоне и кофе",320,"🍮","#d9bd9c"],
+["d3","dessert","Шоколадный фондан","Тёплый, с жидкой серединой",340,"🍫","#b98a68"],
+["p1","pastry","Круассан","Слоёный, с маслом, хрустящий",160,"🥐","#e6c48f"],
+["p2","pastry","Булочка с корицей","Мягкая, с кремовой глазурью",180,"🥯","#d9aa78"],
+["p3","pastry","Миндальный бисквит","Домашний, с цедрой лимона",170,"🍪","#e8d3a8"]];
+const CAT={coffee:"Кофе",tea:"Чай",dessert:"Десерты",pastry:"Выпечка"};
+let cat="coffee",cart={},ord=null;
+const rub=n=>n.toLocaleString("ru-RU")+" ₽";
+function tabs(){$("tabs").innerHTML=Object.entries(CAT).map(([k,v])=>`<button class="${k==cat?"on":""}" onclick="cat='${k}';tabs()">${v}</button>`).join("");
+$("grid").innerHTML=M.filter(m=>m[1]==cat).map(m=>`<div class="it"><div class="ph" style="background:linear-gradient(135deg,${m[6]},${m[6]}99)" role="img" aria-label="${m[2]}"><svg width="92" height="92"><use href="#${{coffee:'cup',tea:'tea',dessert:'cake',pastry:'cro'}[m[1]]}"/></svg></div><div class="b"><h3>${m[2]}</h3><p>${m[3]}</p><div class="pr"><b>${rub(m[4])}</b><button class="btn" onclick="add('${m[0]}')">Заказать</button></div></div></div>`).join("")}
+function count(){return Object.values(cart).reduce((a,b)=>a+b,0)}
+function sum(){return Object.entries(cart).reduce((s,[id,q])=>s+M.find(m=>m[0]==id)[4]*q,0)}
+function add(id){cart[id]=(cart[id]||0)+1;upd();const b=document.querySelector(".cartb");b.style.transform="scale(1.1)";setTimeout(()=>b.style.transform="",150)}
+function chg(id,d){cart[id]+=d;if(cart[id]<=0)delete cart[id];upd();openPanel("cart")}
+function upd(){$("cc").textContent=count()}
+const G=[["cup","Латте-арт","#d8bf9f"],["cro","Свежая выпечка","#e6c48f"],["plant","Уютный зал","#c9a27c"],["cake","Десерты","#ecd5c1"],["bean","Наши зёрна","#d9b58c"],["tea","Чай","#c7cfa8"],["leaf","Зелёный уголок","#d6c9a0"],["plant","Растения","#e0d3b0"]];
+$("gal").innerHTML=G.map(g=>`<div style="background:linear-gradient(135deg,${g[2]},${g[2]}88)" role="img" aria-label="${g[1]}"><svg width="72" height="72" style="margin-bottom:14px"><use href="#${g[0]}"/></svg><small>${g[1]}</small></div>`).join("");
+function openPanel(v){const p=$("pn");p.className="pn"+(v=="privacy"||v=="terms"?" wide":"");p.innerHTML=`<button class="x" onclick="closePanel()" aria-label="Закрыть">✕</button>`+VIEW[v]();$("ov").classList.add("on");p.scrollTop=0;document.body.style.overflow="hidden";if(v=="privacy"||v=="terms")history.replaceState(null,"","#"+v)}
+function closePanel(){$("ov").classList.remove("on");document.body.style.overflow="";if(/privacy|terms/.test(location.hash))history.replaceState(null,"","#home")}
+const VIEW={
+cart(){const e=Object.entries(cart);if(!e.length)return`<h2 style="text-align:left">Корзина</h2><p class="sans" style="color:var(--mute)">Пока пусто. Добавьте что-нибудь вкусное из меню.</p><button class="btn" onclick="closePanel();location.hash='menu'">Перейти в меню</button>`;
+return`<h2 style="text-align:left">Корзина</h2>`+e.map(([id,q])=>{const m=M.find(x=>x[0]==id);return`<div class="row"><span class="e">${m[5]}</span><div class="n">${m[2]}<br><small>${rub(m[4])}</small></div><div class="q"><button onclick="chg('${id}',-1)">−</button>${q}<button onclick="chg('${id}',1)">+</button></div><b>${rub(m[4]*q)}</b><button class="x" style="float:none;width:30px;height:30px" onclick="delete cart['${id}'];upd();openPanel('cart')" aria-label="Удалить">🗑</button></div>`}).join("")+`<div class="tot"><span>Итого</span><b>${rub(sum())}</b></div><button class="btn big" onclick="openPanel('checkout')">Перейти к оплате</button>`},
+checkout(){return`<h2 style="text-align:left">Оформление заказа</h2>
+<form id="f" onsubmit="return pay(event)" class="sans">
+<label>Имя</label><input type="text" id="nm" required autocomplete="name">
+<label>Телефон</label><input type="tel" id="ph" required placeholder="+7 ___ ___-__-__" autocomplete="tel" pattern="[+0-9() \\-]{10,}">
+<label>Способ получения</label><div class="opt"><label><input type="radio" name="dl" value="pickup" checked onchange="tg()"> Самовывоз</label><label><input type="radio" name="dl" value="delivery" onchange="tg()"> Доставка</label></div>
+<div id="ad" class="hide"><label>Адрес доставки</label><input type="text" id="adr" autocomplete="street-address"></div>
+<label>Комментарий к заказу</label><textarea id="cm" rows="2"></textarea>
+<label>Способ оплаты</label><div class="opt"><label><input type="radio" name="pm" value="card" checked onchange="tg()"> 💳 Карта</label><label><input type="radio" name="pm" value="apple" onchange="tg()"> 🍎 Apple Pay</label><label><input type="radio" name="pm" value="google" onchange="tg()"> Google Pay</label><label><input type="radio" name="pm" value="cash" onchange="tg()"> 💵 Наличные</label></div>
+<div id="cd"><label>Номер карты</label><input type="text" id="cn" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" oninput="this.value=this.value.replace(/\\D/g,'').replace(/(.{4})/g,'$1 ').trim()"><div class="g2"><div><label>Срок</label><input type="text" id="ce" placeholder="ММ/ГГ" maxlength="5"></div><div><label>CVC</label><input type="text" id="cv" inputmode="numeric" maxlength="3" placeholder="•••"></div></div></div>
+<div class="chk"><input type="checkbox" id="ag" onchange="tg()"><span>Я согласен с <a href="#privacy" onclick="event.preventDefault();openPanel('privacy')">политикой конфиденциальности</a></span></div>
+<div class="tot"><span>К оплате</span><b>${rub(sum())}</b></div>
+<button class="btn big" id="sb" disabled>Оплатить</button>
+<p class="note">Демо-версия: реальные платежи не проводятся, данные карты не сохраняются.</p></form>`},
+done(){const o=ord;return`<div class="ok"><div class="tick">✅</div><h2>${o.paid?"Заказ успешно оплачен":"Заказ принят"}</h2>
+<div class="rec"><p><span>Номер заказа</span><b>№ ${o.n}</b></p><p><span>Сумма</span><b>${rub(o.s)}</b></p><p><span>Статус оплаты</span><b>${o.paid?"Оплачено ("+o.pm+")":"Оплата при получении"}</b></p><p><span>Получение</span><b style="text-align:right">${o.d=="delivery"?"Доставка: "+o.a+"<br>≈ 40–60 минут":"Самовывоз: ул. Кофейная, 12<br>Будет готов через 15–20 минут"}</b></p></div>
+<p style="color:var(--mute)">Спасибо, ${o.nm}! Мы позвоним по номеру ${o.ph}, если возникнут вопросы.</p><button class="btn big" onclick="closePanel()">Вернуться на сайт</button></div>`},
+privacy(){return`<div class="doc"><h2>Политика конфиденциальности</h2>
+<h3>1. Какие данные мы собираем</h3><p>При оформлении заказа: имя, номер телефона, адрес доставки (если выбрана доставка) и комментарий к заказу. Данные банковской карты обрабатываются платёжным провайдером и не хранятся на нашей стороне.</p>
+<h3>2. Для чего используются данные</h3><ul><li>приём, приготовление и доставка заказа;</li><li>связь с вами по вопросам заказа;</li><li>проведение оплаты и формирование чека.</li></ul><p>Мы не продаём данные и не используем их для рассылок без вашего согласия.</p>
+<h3>3. Как мы защищаем данные</h3><p>Доступ к данным имеют только сотрудники, которым это нужно для выполнения заказа. Передача данных происходит по защищённому соединению. Данные заказов хранятся не дольше 3 лет.</p>
+<h3>4. Ваши права</h3><p>Вы можете запросить доступ к своим данным, их изменение или удаление, а также отозвать согласие. Напишите на hello@ugolyok.example или позвоните +7 (495) 000-00-00 — мы ответим в течение 10 рабочих дней.</p>
+<h3>5. Изменения политики</h3><p>Актуальная версия всегда доступна на этой странице.</p></div>`},
+terms(){return`<div class="doc"><h2>Условия использования</h2>
+<h3>1. Общие положения</h3><p>Используя сайт, вы соглашаетесь с настоящими условиями. Сайт предназначен для просмотра меню и оформления заказов в кофейне «Уголёк».</p>
+<h3>2. Заказы и оплата</h3><p>Цены указаны в рублях. Оплатить заказ можно картой, через Apple Pay, Google Pay или наличными при получении. Заказ считается принятым после подтверждения на сайте.</p>
+<h3>3. Доставка и самовывоз</h3><p>Время доставки ориентировочное и зависит от загруженности и адреса. При самовывозе заказ ждёт вас в кофейне по адресу ул. Кофейная, 12.</p>
+<h3>4. Отмена и возврат</h3><p>Отменить заказ можно до начала приготовления, позвонив по телефону. Если напиток или блюдо не соответствует ожиданиям — сообщите нам, мы заменим или вернём деньги.</p>
+<h3>5. Контакты</h3><p>По любым вопросам: hello@ugolyok.example.</p></div>`}};
+function tg(){const v=n=>document.querySelector(`[name=${n}]:checked`).value;
+$("ad").classList.toggle("hide",v("dl")!="delivery");$("adr").required=v("dl")=="delivery";
+const pm=v("pm");$("cd").classList.toggle("hide",pm!="card");["cn","ce","cv"].forEach(i=>$(i).required=pm=="card");
+$("sb").textContent=pm=="cash"?"Подтвердить заказ":pm=="apple"?"Оплатить через Apple Pay":pm=="google"?"Оплатить через Google Pay":"Оплатить "+rub(sum());
+$("sb").disabled=!$("ag").checked}
+function pay(ev){ev.preventDefault();if(!$("ag").checked)return false;
+const v=n=>document.querySelector(`[name=${n}]:checked`).value,pm=v("pm");
+if(pm=="card"&&($("cn").value.replace(/\D/g,"").length<16||$("cv").value.length<3)){alert("Проверьте данные карты");return false}
+$("sb").disabled=true;$("sb").textContent="Обработка платежа…";
+setTimeout(()=>{ord={n:Math.floor(1000+Math.random()*9000),s:sum(),paid:pm!="cash",pm:{card:"картой",apple:"Apple Pay",google:"Google Pay"}[pm],d:v("dl"),a:$("adr").value,nm:$("nm").value,ph:$("ph").value};cart={};upd();openPanel("done")},1200);return false}
+document.addEventListener("DOMContentLoaded",()=>{});
+document.querySelectorAll("nav a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
+document.querySelectorAll('footer a[href="#privacy"],footer a[href="#terms"]').forEach(a=>a.onclick=e=>{e.preventDefault();openPanel(a.hash.slice(1))});
+const _o=openPanel;openPanel=function(v){_o(v);if(v=="checkout")tg()};
+tabs();
+if(/privacy|terms/.test(location.hash))openPanel(location.hash.slice(1));
+</script>
+</body>
+</html>
